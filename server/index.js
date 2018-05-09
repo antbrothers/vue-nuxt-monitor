@@ -2,7 +2,7 @@
  * @Author: jianxi_lin 
  * @Date: 2018-05-08 17:53:23 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-08 17:55:18
+ * @Last Modified time: 2018-05-09 17:03:28
  */
 import express from 'express'
 import { Nuxt, Builder } from 'nuxt'
@@ -10,8 +10,8 @@ import { Nuxt, Builder } from 'nuxt'
 // import api from './api'
 
 const app = express()
-const host = process.env.HOST || '127.0.0.1'
-const port = process.env.PORT || 3000
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || 3002
 
 app.set('port', port)
 
