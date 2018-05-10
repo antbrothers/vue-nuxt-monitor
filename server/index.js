@@ -2,12 +2,12 @@
  * @Author: jianxi_lin 
  * @Date: 2018-05-08 17:53:23 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-09 17:03:28
+ * @Last Modified time: 2018-05-10 17:48:24
  */
 import express from 'express'
 import { Nuxt, Builder } from 'nuxt'
-
-// import api from './api'
+var rest = require('./middleware/rest');
+var controller = require('./controller');
 
 const app = express()
 const host = process.env.HOST || '0.0.0.0'
@@ -16,7 +16,9 @@ const port = process.env.PORT || 3002
 app.set('port', port)
 
 // Import API Routes
-// app.use('/api', api)
+app.use(controller())
+app.use(rest.restify())
+
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')

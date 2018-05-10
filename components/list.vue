@@ -689,6 +689,8 @@
         </div>
     </div>
 </template>
+
+
 <style lang="less" scoped>
 .list {
   width: 1120px;
