@@ -2,7 +2,7 @@
  * @Author: jianxi_lin 
  * @Date: 2018-05-08 17:53:23 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-10 17:48:24
+ * @Last Modified time: 2018-05-14 15:33:08
  */
 import express from 'express'
 import { Nuxt, Builder } from 'nuxt'
@@ -16,8 +16,8 @@ const port = process.env.PORT || 3002
 app.set('port', port)
 
 // Import API Routes
-app.use(controller())
 app.use(rest.restify())
+app.use(controller())
 
 
 // Import and Set Nuxt.js options

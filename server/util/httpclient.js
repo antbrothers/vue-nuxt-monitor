@@ -3,7 +3,7 @@
  * @Dec:  接入第三方api
  * @Date: 2018-05-10 15:32:19 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-10 16:13:18
+ * @Last Modified time: 2018-05-14 15:21:58
  */
 
  var http = require('http')
@@ -27,7 +27,7 @@
                  return reject(data)
              })
          })
-         
+         request.end()
      })
  }
 
