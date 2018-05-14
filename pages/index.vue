@@ -17,32 +17,21 @@ export default {
     Menu,
     List
   },
-  asyncData({ params, error }) {
-    // return axios
-    //   .get("/api/getRed")
-    //   .then(res => {
-    //     return { data: res.data };
-    //   })
-    //   .catch(e => {
-    //     error({ statusCode: 404, message: "User not found" });
-    //   });
+  async asyncData({ error }) {
+    console.log(22);
+    return await axios.get("/apiTest/users")
+      .then(res => {
+        return { data: res.data };
+      })
+      .catch(e => {
+        error({ statusCode: 404, message: "User not found" });
+      });
   },
-  mounted () {
-    this.F()
+  mounted() {
+    this.F();
   },
   methods: {
-    F () {
-      var p = []
-      var A = new Function()
-      console.log(A)
-      A.prototype = []
-      console.log(A)
-      var a = new A()
-        console.log(a)
-      a.push(1)
-      console.log(a.length)
-      console.log(p.length)
-    }
-  } 
+    F() {}
+  }
 };
 </script>

@@ -3,16 +3,16 @@
  * @Dec:  接入第三方api
  * @Date: 2018-05-10 15:32:19 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-14 15:21:58
+ * @Last Modified time: 2018-05-14 16:39:30
  */
 
  var http = require('http')
  module.exports = async (ctx) => {
      let options = {
          port: 80,
-         hostname: 'www.123369.com.cn',
+         hostname: 'bj.meituan.com',
          methos: 'GET',
-         path: '/api/ServiceList'
+         path: '/ptapi/getHotCinema'
      }
      return new Promise((resolve, reject) => {
          let request = http.request(options, (socket) => {

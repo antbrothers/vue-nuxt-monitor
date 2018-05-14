@@ -3,7 +3,7 @@
  * @Dec:   处理结果中间件
  * @Date: 2018-05-10 15:53:42 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-10 16:05:38
+ * @Last Modified time: 2018-05-14 17:08:16
  */
 
 module.exports = {
@@ -14,11 +14,15 @@ module.exports = {
                     res.set({
                         'Content-Type': 'application/json;charset=utf-8',
                     })
-                    data.products.then(result => {
-                        res.status(200).json({ code: 200, message: '请求成功', data: result })
-                    }).catch(function (error) {
-                        res.status(100).json({ code: 200, message: error, data: [] })
-                    })
+                     if (typeof data.products.then == 'function') {
+                        data.products.then(result => {
+                            res.status(200).json({code: 200, message: '请求成功', data: result})
+                         }).catch(function(error){
+                            res.status(100).json({code: 200, message: error, data: []})
+                        })   
+                    } else {
+                        res.status(200).json(data.products)
+                    }
                 }
                 try {
                     await next();

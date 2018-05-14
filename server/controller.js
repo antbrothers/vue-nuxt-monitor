@@ -3,7 +3,7 @@
  * @Dec 向路由注册控制器
  * @Date: 2018-05-10 10:08:56 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-14 15:26:50
+ * @Last Modified time: 2018-05-14 17:15:33
  */
 
 const fs = require('fs');
@@ -32,7 +32,7 @@ function addMapping(router, mapping) {
 
 function addController(router, dir) {
    fs.readdirSync(__dirname + '/' + dir).filter((file) => {
-       return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+       return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js') && (file.indexOf('mock') !== 0) ;
    }).forEach((file) => {
        // console.log(path.join(__dirname, dir, file))
         addMapping(router, require('./'+dir+'/'+file));
