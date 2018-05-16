@@ -17,9 +17,8 @@ export default {
     Menu,
     List
   },
-  async asyncData({ error }) {
-    console.log(22);
-    return await axios.get("/apiTest/users")
+  async asyncData({ error }) {    
+    return await axios.get("/api/getRed")
       .then(res => {
         return { data: res.data };
       })
