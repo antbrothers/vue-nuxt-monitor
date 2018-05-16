@@ -1,7 +1,7 @@
 <template>
   <div>
     <Menu/>
-    <List/>
+    <List v-bind:hotList= "data.data"/>
     <nuxt-link :to="{ name: 'home'}">
       home 页面
     </nuxt-link>
@@ -17,13 +17,13 @@ export default {
     Menu,
     List
   },
-  async asyncData({ error }) {    
+  async asyncData({ error }) {       
     return await axios.get("/api/getRed")
-      .then(res => {
+      .then(res => {       
         return { data: res.data };
       })
       .catch(e => {
-        error({ statusCode: 404, message: "User not found" });
+        error({ statusCode: 404, message: `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3002}/api/getRed not found`});
       });
   },
   mounted() {
