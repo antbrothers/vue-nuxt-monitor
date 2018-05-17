@@ -12,25 +12,33 @@
 import Menu from "~/components/menu.vue";
 import List from "~/components/list.vue";
 import axios from "~/plugins/axios";
+import { mapState, mapGetters } from "vuex";
 export default {
   components: {
     Menu,
     List
   },
-  async asyncData({ error }) {       
+  computed: {
+    ...mapState({
+      hotData: (satate) => state.data
+    })
+  },
+  async asyncData({error}) {       
     return await axios.get("/api/getRed")
       .then(res => {       
         return { data: res.data };
       })
       .catch(e => {
          error({ statusCode: 404, message: `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3002}/api/getRed not found`});      
-      });
+      });  
   },
   mounted() {
     this.F();
-  },
+  }, 
   methods: {
-    F() {}
+    F() {     
+      this.$store.dispatch('getHotFile')
+    }
   }
 };
 </script>
