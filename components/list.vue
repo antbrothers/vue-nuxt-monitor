@@ -36,7 +36,7 @@
             <dl class="movie-list">
                 <dd v-for="(item, index) in hotList.hot" :key="index">
                     <div class="movie-item">
-                        <a href="/films/343720" target="_blank" data-act="movie-click" data-val="{movieid:343720}">
+                        <a href="/films/343720" target="_blank">
                             <div class="movie-poster">
                                 <img class="poster-default" src="//ms0.meituan.net/mywww/image/loading_2.e3d934bf.png">
                                 <img :src="editeImg(item.img)">
@@ -49,7 +49,7 @@
                         <div class="movie-ver"></div>
                     </div>
                     <div class="channel-detail movie-item-title" title="后来的我们">
-                        <a href="/films/343720" target="_blank" data-act="movies-click" data-val="{movieId:343720}">{{item.nm}}</a>
+                        <a href="/films/343720" target="_blank">{{item.nm}}</a>
                     </div>
                     <div class="channel-detail channel-detail-orange">
                         <i class="integer">8.</i>
