@@ -12,7 +12,7 @@
 import Menu from "~/components/menu.vue";
 import List from "~/components/list.vue";
 import axios from "~/plugins/axios";
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapActions} from "vuex";
 export default {
   components: {
     Menu,
@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapState({
-      hotData: (satate) => state.data
+      hotData: (state) => state.fileStore.data
     })
   },
   async asyncData({error}) {       
@@ -32,12 +32,12 @@ export default {
          error({ statusCode: 404, message: `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3002}/api/getRed not found`});      
       });  
   },
-  mounted() {
+  mounted() {  
     this.F();
   }, 
   methods: {
     F() {     
-      this.$store.dispatch('getHotFile')
+      this.$store.dispatch('getHotFile')        
     }
   }
 };
