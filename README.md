@@ -36,3 +36,4 @@
     3. 在服务器上执行 npm install
     4. 通过pm2 启动 pm2 start npm --nam nuxt -- start
 ```
+#### v8-profiler 进行内存溢出排除
