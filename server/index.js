@@ -2,11 +2,12 @@
  * @Author: jianxi_lin 
  * @Date: 2018-05-08 17:53:23 
  * @Last Modified by: jianxi_lin
- * @Last Modified time: 2018-05-16 15:35:09
+ * @Last Modified time: 2018-05-21 15:37:14
  */
 var  express = require('express')
 var   Nuxt = require('nuxt').Nuxt
 var Builder = require('nuxt').Builder
+
 var rest = require('./middleware/rest');
 var controller = require('./controller');
 
@@ -15,6 +16,7 @@ const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 3002
 
 app.set('port', port)
+
 
 // Import API Routes
 app.use(rest.restify())
